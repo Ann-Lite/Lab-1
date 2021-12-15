@@ -27,12 +27,16 @@ namespace Lab_1
         }
         private void Вычислить_Click(object sender, RoutedEventArgs e)
         {
-            if (Int32.TryParse(count.Text, out int counts) == true)
+            try
             {
+                int counts = Convert.ToInt32(count.Text);
                 Practice.MiniNumber(counts, out int miniNumber, out string number);
                 otvet.Text = miniNumber.ToString(); otvet2.Text = number;
             }
-            else MessageBox.Show("Введены некорректные данные");
+            catch
+            {
+                MessageBox.Show("Введены некорректные данные");
+            }
         }
 
         private void О_программе_Click(object sender, RoutedEventArgs e)
